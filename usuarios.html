@@ -25,6 +25,7 @@
       <div>
         <h2 class="font-bold text-gray-900 dark:text-white leading-tight">CETIPass</h2>
         <p class="text-[10px] text-gray-400 uppercase tracking-widest font-bold">Gestão de Acesso</p>
+        <div id="userNameDisplay" class="text-[10px] text-indigo-600 dark:text-indigo-400 font-bold mt-1 truncate max-w-[120px]"></div>
       </div>
     </div>
     <nav class="flex-1 p-4 space-y-1">
@@ -100,6 +101,8 @@
         window.location.href = 'dashboard.html';
         return;
       }
+
+      document.getElementById('userNameDisplay').textContent = userSnap.data().nome || user.email;
       
       onSnapshot(collection(db, "usuarios"), (snapshot) => {
         listaUsuariosEl.innerHTML = '';
@@ -119,14 +122,14 @@
               </select>
             </td>
             <td class="px-6 py-4">
-              <span class="px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-widest ${usuario.status === 'approved' ? 'bg-green-100 text-green-700' : 'bg-orange-100 text-orange-700'}">
-                ${usuario.status}
+              <span class="px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-widest ${usuario.status === 'aprovado' ? 'bg-green-100 text-green-700' : 'bg-orange-100 text-orange-700'}">
+                ${usuario.status || 'pendente'}
               </span>
             </td>
             <td class="px-6 py-4 text-right">
               ${!isSelf ? `
-                <button onclick="window.toggleStatus('${id}', '${usuario.status}')" class="px-4 py-2 rounded-lg text-xs font-bold transition-all ${usuario.status === 'pending' ? 'bg-indigo-600 text-white hover:bg-indigo-700' : 'bg-gray-100 text-gray-600 hover:bg-gray-200'}">
-                  ${usuario.status === 'pending' ? 'Aprovar' : 'Suspender'}
+                <button onclick="window.toggleStatus('${id}', '${usuario.status}')" class="px-4 py-2 rounded-lg text-xs font-bold transition-all ${usuario.status === 'pendente' ? 'bg-indigo-600 text-white hover:bg-indigo-700' : 'bg-gray-100 text-gray-600 hover:bg-gray-200'}">
+                  ${usuario.status === 'pendente' ? 'Aprovar' : 'Suspender'}
                 </button>
               ` : '<span class="text-xs text-gray-400 italic">Você</span>'}
             </td>
@@ -137,7 +140,7 @@
     });
 
     window.toggleStatus = async (id, currentStatus) => {
-      const next = currentStatus === 'pending' ? 'approved' : 'pending';
+      const next = currentStatus === 'pendente' ? 'aprovado' : 'pendente';
       try {
         await updateDoc(doc(db, "usuarios", id), { status: next });
       } catch (e) { alert("Erro ao atualizar status."); }

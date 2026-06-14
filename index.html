@@ -122,7 +122,7 @@
 
   <script type="module">
     import { initializeApp } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-app.js";
-    import { getFirestore, collection, doc, setDoc, getDocs, query, where, limit, onSnapshot } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore.js";
+    import { getFirestore, collection, doc, setDoc, getDocs, query, where, limit, onSnapshot, serverTimestamp } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore.js";
 
     const firebaseConfig = {
       apiKey: "AIzaSyB1wMxVNTcvIyz80arV4YNsKhUZAs7a4Uc",
@@ -282,7 +282,8 @@
           matricula: matricula,
           curso: cursoVal,
           turma: turmaVal,
-          status: 'ativo'
+          status: 'ativo',
+          dataCadastro: serverTimestamp()
         };
 
         // Salvar no Firestore

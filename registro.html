@@ -94,8 +94,8 @@
         // Criar perfil do usuário no Firestore com status pendente e papel inicial limitado
         await setDoc(doc(db, "usuarios", user.uid), {
           email: email,
-          role: 'viewer',    
-          status: 'pending',  
+          role: 'visualizador',    
+          status: 'pendente',  
           createdAt: serverTimestamp()
         });
 

@@ -32,6 +32,7 @@
       <div>
         <h2 class="font-bold text-gray-900 dark:text-white leading-tight">CETIPass</h2>
         <p class="text-[10px] text-gray-400 uppercase tracking-widest font-bold">Gestão de Acesso</p>
+        <div id="userNameDisplay" class="text-[10px] text-indigo-600 dark:text-indigo-400 font-bold mt-1 truncate max-w-[120px]"></div>
       </div>
     </div>
     
@@ -43,6 +44,7 @@
         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><path d="M6 9V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v5"/><rect x="6" y="14" width="12" height="8" rx="2"/></svg>
         Imprimir Carteiras
       </a>
+      <a href="admin.html#config" class="flex items-center gap-3 p-3 rounded-xl text-gray-600 dark:text-slate-400 hover:bg-indigo-50 dark:hover:bg-slate-800 transition-all font-medium">Gerenciar Cursos/Turmas</a>
       <a href="admin.html" class="flex items-center gap-3 p-3 rounded-xl text-gray-600 dark:text-slate-400 hover:bg-indigo-50 dark:hover:bg-slate-800 transition-all font-medium">Cadastrar Aluno</a>
       <button id="logoutBtn" class="w-full flex items-center gap-3 p-3 rounded-xl text-red-500 hover:bg-red-50 transition-all font-medium mt-auto">Sair</button>
     </nav>
@@ -92,9 +94,16 @@
     const qrBuffer = document.getElementById('qr-buffer');
 
     // Proteção de Rota
-    onAuthStateChanged(auth, (user) => {
-      if (!user) window.location.href = 'login.html';
-      else loadRecentStudents();
+    onAuthStateChanged(auth, async (user) => {
+      if (!user) {
+        window.location.href = 'login.html';
+      } else {
+        const userDoc = await getDoc(doc(db, "usuarios", user.uid));
+        if (userDoc.exists()) {
+          document.getElementById('userNameDisplay').textContent = userDoc.data().nome || user.email;
+        }
+        loadRecentStudents();
+      }
     });
 
     document.getElementById('logoutBtn').onclick = () => signOut(auth);
@@ -137,8 +146,13 @@
         if (docSnap.exists()) {
           renderStudents([{ id: docSnap.id, ...docSnap.data() }]);
         } else {
-          // Busca por Nome
-          const q = query(collection(db, "alunos"), where("nome", "==", val), limit(10));
+          // Busca por Nome (Inicia com...) para encontrar registros antigos sem precisar do nome completo
+          const q = query(
+            collection(db, "alunos"), 
+            where("nome", ">=", val), 
+            where("nome", "<=", val + '\uf8ff'), 
+            limit(15)
+          );
           const snap = await getDocs(q);
           renderStudents(snap.docs.map(d => ({ id: d.id, ...d.data() })));
         }

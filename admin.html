@@ -97,7 +97,7 @@
   <!-- Menu Lateral -->
   <aside class="no-print w-full md:w-64 bg-white dark:bg-slate-900 border-r border-gray-200 dark:border-slate-800 flex-shrink-0 flex flex-col h-auto md:h-screen sticky top-0">
     <div class="p-6 border-b border-gray-100 flex items-center gap-3">
-      <img src="logo.png" alt="Logo" class="h-16 w-auto">
+      <img src="logo.png" alt="Logo" class="h-10 w-auto">
       <div>
         <h2 class="font-bold text-gray-900 dark:text-white leading-tight">CETIPass</h2>
         <p class="text-[10px] text-gray-400 uppercase tracking-widest font-bold">Gestão de Acesso</p>
@@ -105,7 +105,7 @@
       </div>
     </div>
     
-    <nav class="flex-1 p-4 space-y-1">
+    <nav class="flex-1 p-4 space-y-1 overflow-y-auto">
       <a href="dashboard.html" class="flex items-center gap-3 p-3 rounded-xl text-gray-600 dark:text-slate-400 hover:bg-indigo-50 dark:hover:bg-slate-800 hover:text-indigo-600 dark:hover:text-indigo-400 hover:translate-x-1 hover:scale-[1.02] transition-all duration-300 ease-in-out font-medium">
         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="7" height="9" x="3" y="3" rx="1"/><rect width="7" height="5" x="14" y="3" rx="1"/><rect width="7" height="9" x="14" y="12" rx="1"/><rect width="7" height="5" x="3" y="16" rx="1"/></svg>
         Dashboard
@@ -122,22 +122,27 @@
         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><path d="M6 9V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v5"/><rect x="6" y="14" width="12" height="8" rx="2"/></svg>
         Imprimir Carteiras
       </a>
-      <button id="navSolicitacoes" onclick="toggleAccessView()" class="w-full flex items-center gap-3 p-3 rounded-xl text-gray-600 dark:text-slate-400 hover:bg-indigo-50 dark:hover:bg-slate-800 transition-all font-medium">
+      <!-- Botão de Configuração alinhado -->
+      <button id="openConfigBtn" type="button" class="w-full flex items-center gap-3 p-3 rounded-xl text-gray-600 dark:text-slate-400 hover:bg-indigo-50 dark:hover:bg-slate-800 hover:text-indigo-600 dark:hover:text-indigo-400 hover:translate-x-1 hover:scale-[1.02] transition-all duration-300 ease-in-out font-medium">
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"/><circle cx="12" cy="12" r="3"/></svg>
+        Gerenciar Cursos/Turmas
+      </button>
+      <button id="navCadastrar" onclick="toggleAccessView()" class="w-full flex items-center gap-3 p-3 rounded-xl bg-indigo-600 text-white shadow-lg shadow-indigo-100 transition-all duration-300 font-medium">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><line x1="19" x2="19" y1="8" y2="14"/><line x1="16" x2="22" y1="11" y2="11"/></svg>
+        Cadastrar Aluno
+      </button>
+      <button id="navSolicitacoes" onclick="toggleAccessView()" class="w-full flex items-center gap-3 p-3 rounded-xl text-gray-600 dark:text-slate-400 hover:bg-indigo-50 dark:hover:bg-slate-800 transition-all duration-300 font-medium">
         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
         Solicitações de Acesso
         <span id="badgeSolicitacoes" class="hidden bg-red-500 text-white text-[10px] px-1.5 py-0.5 rounded-full ml-auto">0</span>
       </button>
     </nav>
 
-    <div class="p-4 border-t border-gray-100">
-      <button id="themeToggle" class="w-full flex items-center gap-3 p-3 rounded-xl text-gray-500 dark:text-slate-400 hover:bg-gray-50 dark:hover:bg-slate-800 transition-all font-medium">
+    <div class="p-4 border-t border-gray-100 dark:border-slate-800 space-y-1">
+      <button id="themeToggle" class="w-full flex items-center gap-3 p-3 rounded-xl text-gray-600 dark:text-slate-400 hover:bg-gray-50 dark:hover:bg-slate-800 transition-all font-medium">
         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="dark:hidden"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="hidden dark:block"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="M4.93 4.93l1.41 1.41"/><path d="M17.66 17.66l1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="M6.34 17.66l-1.41 1.41"/><path d="M19.07 4.93l-1.41 1.41"/></svg>
         Alternar Tema
-      </button>
-      <button id="openConfigBtn" class="w-full flex items-center gap-3 p-3 rounded-xl text-gray-500 hover:bg-gray-50 transition-all font-medium">
-        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"/><circle cx="12" cy="12" r="3"/></svg>
-        Configurações
       </button>
       <button id="logoutBtn" class="w-full flex items-center gap-3 p-3 rounded-xl text-red-500 hover:bg-red-50 transition-all font-medium">
         <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" x2="9" y1="12" y2="12"/></svg>
@@ -173,19 +178,6 @@
         <h1 class="text-xl font-bold">Cadastro de Alunos</h1>
       </div>
 
-      <!-- Reimprimir / Pesquisar -->
-      <section class="mb-10 no-print">
-        <div class="relative group">
-          <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
-            <svg class="h-5 w-5 text-gray-400 group-focus-within:text-indigo-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
-          </div>
-          <input id="searchQuery" type="text" oninput="this.value = this.value.toUpperCase()" class="block w-full pl-11 pr-32 py-4 bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-800 rounded-2xl leading-5 shadow-sm placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm uppercase transition-all" placeholder="PESQUISAR POR NOME OU MATRÍCULA PARA REIMPRIMIR">
-          <div class="absolute inset-y-0 right-0 flex items-center pr-2">
-            <button id="searchBtn" class="bg-gray-900 text-white px-6 py-2 rounded-xl text-sm font-bold hover:bg-black transition-all">Buscar</button>
-          </div>
-        </div>
-      </section>
-
       <!-- Formulário de Cadastro -->
       <section class="bg-white dark:bg-slate-900 rounded-3xl p-6 md:p-10 shadow-xl border border-gray-100 dark:border-slate-800 no-print">
         <div class="flex items-center gap-3 mb-8">
@@ -199,7 +191,7 @@
           <!-- Nome Completo -->
           <div class="space-y-1">
             <label class="text-sm font-semibold text-gray-700 dark:text-slate-300">Nome do Aluno</label>
-            <input id="nome" type="text" required oninput="this.value = this.value.toUpperCase()" class="w-full rounded-xl border-gray-200 dark:border-slate-700 bg-gray-50/50 dark:bg-slate-800/50 p-4 focus:bg-white focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none border transition-all uppercase text-sm" placeholder="DIGITE O NOME COMPLETO">
+            <input id="nome" type="text" required oninput="this.value = this.value.toUpperCase()" class="w-full rounded-xl border-gray-200 dark:border-slate-700 bg-gray-50/50 dark:bg-slate-800/50 p-4 focus:bg-white focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none border transition-all uppercase text-sm text-black dark:text-black" placeholder="DIGITE O NOME COMPLETO">
             <p id="nomeWarning" class="text-xs text-red-500 mt-1 hidden font-medium">⚠️ Nome já consta na base de dados.</p>
           </div>
 
@@ -239,81 +231,8 @@
           </div>
         </form>
       </section>
-
-      <!-- Preview da Carteirinha -->
-      <section id="previewSection" class="mt-12 flex flex-col items-center hidden">
-        <p class="text-xs font-bold text-gray-400 uppercase tracking-[0.2em] mb-4">Resultado da Geração</p>
-        <div id="cardWrapper" class="cracha-cr80 shadow-2xl relative">
-            <div class="w-[50mm] h-full flex flex-col justify-between overflow-hidden">
-              <img src="logo.png" class="h-[24mm] w-auto object-contain object-left mb-1">
-              <div class="flex flex-col justify-end gap-[2px]">
-                <span id="cardNome" class="font-bold text-[10px] leading-tight uppercase text-black break-words whitespace-normal line-clamp-2"></span>
-                <span id="cardCurso" class="text-[8px] font-bold leading-tight uppercase text-indigo-700 break-words whitespace-normal line-clamp-2"></span>
-                <span id="cardTurma" class="text-[8px] leading-tight uppercase text-gray-800"></span>
-                <span id="cardMat" class="text-[8px] leading-tight uppercase text-gray-500 mt-1">ID: <span id="cardMatVal"></span></span>
-              </div>
-            </div>
-            <div class="w-[26mm] h-[26mm] flex-shrink-0 flex items-start justify-center">
-              <div id="qrcodeContainer" class="w-[26mm] h-[26mm]"></div>
-            </div>
-            <div class="absolute bottom-1 right-1 flex gap-1 no-print">
-              <button id="imprimirBtn" class="bg-green-600 text-white rounded px-2 py-1 text-[10px] hover:bg-green-700">Imprimir</button>
-              <button id="downloadBtn" class="bg-blue-600 text-white rounded px-2 py-1 text-[10px] hover:bg-blue-700">Baixar</button>
-            </div>
-        </div>
-      </section>
     </div>
   </main>
-
-  <!-- Modal de Configurações do Sistema -->
-  <div id="configModal" class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center z-50 transition-modal opacity-0">
-    <div class="bg-white rounded-2xl shadow-2xl w-full max-w-3xl max-h-[90vh] overflow-y-auto m-4 flex flex-col gap-6 p-6">
-      
-      <div class="flex justify-between items-center border-b pb-3 sticky top-0 bg-white z-10">
-        <h2 class="text-xl font-bold text-gray-800">Configurações do Sistema</h2>
-        <button id="closeConfigBtn" class="text-gray-500 hover:text-red-500 transition-colors p-2 rounded-full hover:bg-gray-100">
-          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
-        </button>
-      </div>
-
-      <div class="flex flex-col gap-3">
-        <h3 class="text-lg font-semibold text-gray-700">Solicitações de Acesso Pendentes</h3>
-        <div class="bg-gray-50 border border-gray-200 rounded-lg p-4 min-h-[100px] max-h-[250px] overflow-y-auto shadow-inner">
-          <ul id="listaSolicitacoes" class="space-y-3">
-            <li class="text-sm text-gray-500 italic text-center py-4">A procurar solicitações...</li>
-          </ul>
-        </div>
-      </div>
-
-      <hr class="border-gray-200">
-
-      <div class="flex flex-col gap-4">
-        <h3 class="text-lg font-semibold text-gray-700">Gestão de Cursos e Turmas</h3>
-        
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <div class="bg-indigo-50 p-5 rounded-xl border border-indigo-100 flex flex-col gap-3 shadow-sm">
-            <label class="text-sm font-semibold text-indigo-800">1. Adicionar Novo Curso</label>
-            <input type="text" id="novoCursoNome" placeholder="Ex: ENFERMAGEM" class="w-full px-4 py-2 rounded-lg border border-indigo-200 focus:ring-2 focus:ring-indigo-500 uppercase outline-none" oninput="this.value = this.value.toUpperCase()">
-            <button id="btnSalvarCurso" class="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-2 rounded-lg transition-colors text-sm shadow">
-              + Adicionar Curso
-            </button>
-          </div>
-
-          <div class="bg-emerald-50 p-5 rounded-xl border border-emerald-100 flex flex-col gap-3 shadow-sm">
-            <label class="text-sm font-semibold text-emerald-800">2. Adicionar Turma</label>
-            <select id="cursoParaTurma" class="w-full px-4 py-2 rounded-lg border border-emerald-200 focus:ring-2 focus:ring-emerald-500 outline-none bg-white">
-              <option value="">Selecione o Curso...</option>
-            </select>
-            <input type="text" id="novaTurmaNome" placeholder="Ex: 1ª SÉRIE A" class="w-full px-4 py-2 rounded-lg border border-emerald-200 focus:ring-2 focus:ring-emerald-500 uppercase outline-none disabled:opacity-50 disabled:bg-gray-100" disabled oninput="this.value = this.value.toUpperCase()">
-            <button id="btnSalvarTurma" class="bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-2 rounded-lg transition-colors text-sm shadow disabled:opacity-50" disabled>
-              + Adicionar Turma
-            </button>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </div>
 
   <script type="module">
     import { initializeApp } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-app.js";
@@ -343,8 +262,6 @@
     const turmaSelect = document.getElementById('turma');
     const gerarBtn = document.getElementById('gerarBtn');
     const limparBtn = document.getElementById('limparBtn');
-    const searchBtn = document.getElementById('searchBtn');
-    const searchQuery = document.getElementById('searchQuery');
     const cursoParaTurma = document.getElementById('cursoParaTurma');
     const novoCursoNome = document.getElementById('novoCursoNome');
     const novaTurmaNome = document.getElementById('novaTurmaNome');
@@ -415,17 +332,20 @@
 
     const toggleModal = (show) => {
       if(show) {
-        configModal.classList.remove('hidden');
-        configModal.classList.add('flex');
+        configModal.classList.remove('hidden', 'opacity-0');
+        configModal.classList.add('flex', 'opacity-100');
         document.body.classList.add('modal-open');
       } else {
-        configModal.classList.add('hidden');
-        configModal.classList.remove('flex');
+        configModal.classList.add('hidden', 'opacity-0');
+        configModal.classList.remove('flex', 'opacity-100');
         document.body.classList.remove('modal-open');
       }
     };
 
-    openConfigBtn.onclick = () => toggleModal(true);
+    openConfigBtn.addEventListener('click', (event) => {
+      event.preventDefault();
+      toggleModal(true);
+    });
     closeConfigBtn.onclick = () => toggleModal(false);
 
     // Lógica de Alternar Tema
@@ -523,15 +443,6 @@
 
     let cursosComTurmas = {};
 
-    const cardWrapper = document.getElementById('cardWrapper');
-    const qrcodeContainer = document.getElementById('qrcodeContainer');
-    const cardNome = document.getElementById('cardNome');
-    const cardCurso = document.getElementById('cardCurso');
-    const cardTurma = document.getElementById('cardTurma');
-    const cardMatVal = document.getElementById('cardMatVal');
-    const imprimirBtn = document.getElementById('imprimirBtn');
-    const downloadBtn = document.getElementById('downloadBtn');
-
     // Verificação de nome em tempo real com debounce
     let debounceTimer;
     nomeInput.addEventListener('input', () => {
@@ -583,9 +494,64 @@
           populateCourseSelect(cursoSelect, cursos, "Selecione um curso");
           populateCourseSelect(cursoParaTurma, cursos, "Selecione o Curso...");
           handleCursoSelectChange();
+          renderConfigList();
         } else {
           await setDoc(configDocRef, { cursosComTurmas: {} });
         }
+      });
+    }
+
+    async function renderConfigList() {
+      const listContainer = document.getElementById('configList');
+      listContainer.innerHTML = '';
+
+      // Buscar contagem de alunos por curso no Firestore
+      const studentCounts = {};
+      try {
+        const snapshotAlunos = await getDocs(collection(db, "alunos"));
+        snapshotAlunos.forEach(doc => {
+          const data = doc.data();
+          if (data.curso) {
+            studentCounts[data.curso] = (studentCounts[data.curso] || 0) + 1;
+          }
+        });
+      } catch (e) { console.error("Erro ao contar alunos:", e); }
+
+      Object.keys(cursosComTurmas).sort().forEach(curso => {
+        const count = studentCounts[curso] || 0;
+        const cursoDiv = document.createElement('div');
+        cursoDiv.className = "bg-gray-50 dark:bg-slate-800/50 p-4 rounded-2xl border dark:border-slate-800";
+        
+        const turmas = cursosComTurmas[curso] || [];
+        
+        cursoDiv.innerHTML = `
+          <div class="flex items-center justify-between mb-3">
+            <div class="flex items-center gap-2">
+              <span class="font-black text-indigo-600 dark:text-indigo-400 uppercase text-sm">${curso}</span>
+              <span class="px-2 py-0.5 bg-indigo-100 dark:bg-indigo-900/40 text-indigo-700 dark:text-indigo-300 text-[10px] rounded-full font-bold">
+                ${count} alunos
+              </span>
+            </div>
+            <div class="flex gap-2">
+              <button onclick="window.editConfig('curso', '${curso}')" class="p-1.5 text-gray-400 hover:text-amber-500 transition-colors">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </button>
+              <button onclick="window.removeConfig('curso', '${curso}')" class="p-1.5 text-gray-400 hover:text-red-500 transition-colors">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-4v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </button>
+            </div>
+          </div>
+          <div class="flex flex-wrap gap-2">
+            ${turmas.map(turma => `
+              <div class="flex items-center gap-1 bg-white dark:bg-slate-700 px-3 py-1.5 rounded-lg border dark:border-slate-600 text-[10px] font-bold">
+                <span class="text-gray-700 dark:text-gray-200">${turma}</span>
+                <button onclick="window.editConfig('turma', '${curso}', '${turma}')" class="ml-1 text-gray-400 hover:text-amber-500"><svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" stroke-width="2"/></svg></button>
+                <button onclick="window.removeConfig('turma', '${curso}', '${turma}')" class="text-gray-400 hover:text-red-500"><svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M6 18L18 6M6 6l12 12" stroke-width="2"/></svg></button>
+              </div>
+            `).join('')}
+          </div>
+        `;
+        listContainer.appendChild(cursoDiv);
       });
     }
 
@@ -614,11 +580,36 @@
 
     window.removeConfig = async (type, curso, turma) => {
       if (type === 'curso') {
+        // Verificar se há alunos matriculados no curso
+        const q = query(collection(db, "alunos"), where("curso", "==", curso), limit(1));
+        const snapshot = await getDocs(q);
+        
+        if (!snapshot.empty) {
+          showToast(`Não é possível excluir o curso "${curso}" porque existem alunos matriculados nele.`, 'error');
+          return;
+        }
+
         if (!confirm(`Excluir o curso "${curso}" e todas as suas turmas?`)) return;
         await updateDoc(configDocRef, { [`cursosComTurmas.${curso}`]: deleteField() });
+        showToast('Curso removido com sucesso!', 'success');
       } else if (type === 'turma') {
+        // Verificar se há alunos matriculados na turma
+        const q = query(
+          collection(db, "alunos"), 
+          where("curso", "==", curso), 
+          where("turma", "==", turma), 
+          limit(1)
+        );
+        const snapshot = await getDocs(q);
+
+        if (!snapshot.empty) {
+          showToast(`Não é possível excluir a turma "${turma}" porque existem alunos matriculados nela.`, 'error');
+          return;
+        }
+
         if (!confirm(`Excluir a turma "${turma}" do curso "${curso}"?`)) return;
         await updateDoc(configDocRef, { [`cursosComTurmas.${curso}`]: arrayRemove(turma) });
+        showToast('Turma removida com sucesso!', 'success');
       }
     };
 
@@ -673,6 +664,9 @@
     window.addEventListener('DOMContentLoaded', () => {
       matriculaInput.value = generateMatricula();
       setupConfigSync();
+      if (location.hash === '#config') {
+        toggleModal(true);
+      }
     });
 
     // Função para salvar no Firestore
@@ -727,103 +721,56 @@
       gerarBtn.textContent = originalText;
     });
 
-    // Função de Pesquisar Aluno
-    searchBtn.addEventListener('click', async () => {
-      const val = searchQuery.value.trim().toUpperCase();
-      if (!val) return;
-
-      searchBtn.disabled = true;
-      try {
-        let aluno = null;
-
-        // 1. Tentar busca pelo ID (matrícula)
-        const docRef = doc(db, "alunos", val);
-        const docSnap = await getDoc(docRef);
-
-        if (docSnap.exists()) {
-          aluno = docSnap.data();
-        } else {
-          // 2. Se não achar por ID, tentar busca pelo campo nome
-          const q = query(collection(db, "alunos"), where("nome", "==", val));
-          const querySnapshot = await getDocs(q);
-          if (!querySnapshot.empty) {
-            aluno = querySnapshot.docs[0].data();
-          }
-        }
-
-        if (aluno) {
-          gerarCarteirinha(aluno.nome, aluno.matricula, aluno.curso, aluno.turma);
-        } else {
- showToast("Aluno não encontrado.", 'info');
-        }
-      } catch (e) {
-        console.error("Erro na busca:", e);
-      } finally {
-        searchBtn.disabled = false;
-      }
-    });
-
     limparBtn.addEventListener('click', () => {
       form.reset();
-      previewSection.classList.add('hidden');
       nomeWarning.classList.add('hidden');
       matriculaInput.value = generateMatricula();
     });
-
-    imprimirBtn.addEventListener('click', () => window.print());
- showToast('Carteirinha PDF gerada e baixada!', 'success');
-
-    downloadBtn.addEventListener('click', async () => {
-      const canvas = qrcodeContainer.querySelector('canvas');
-      if (!canvas) return;
-
-      const { jsPDF } = window.jspdf;
-      const pdf = new jsPDF({ orientation: 'landscape', unit: 'mm', format: [86, 54] });
-
-      const nome = cardNome.textContent.trim();
-      const curso = cardCurso.textContent.trim();
-      const turma = cardTurma.textContent.trim();
-      const matricula = cardMatVal.textContent.trim();
-      const qrDataUrl = canvas.toDataURL("image/png");
-
-      // Borda opcional (remova se preferir o cartão limpo)
-      pdf.setDrawColor(203, 213, 225); // #cbd5e1
-      pdf.setLineWidth(0.1);
-      pdf.roundedRect(0, 0, 86, 54, 2, 2);
-
-      // Logo (Margem 4mm)
-      pdf.addImage('logo.png', 'PNG', 4, 4, 24, 24);
-      
-      // QR Code (Posicionado à direita: 86 - 4 (margem) - 26 (largura) = 56mm)
-      pdf.addImage(qrDataUrl, 'PNG', 56, 4, 26, 26);
-
-      // Coluna de Texto (Largura máx 50mm para não invadir o QR)
-      let currentY = 31; 
-      pdf.setFont("helvetica", "bold");
-      pdf.setFontSize(10);
-      pdf.setTextColor(0, 0, 0);
-      const nomeLines = pdf.splitTextToSize(nome.toUpperCase(), 50);
-      pdf.text(nomeLines, 4, currentY);
-      currentY += (nomeLines.length * 4);
-
-      pdf.setFontSize(8);
-      pdf.setTextColor(67, 56, 202);
-      const cursoLines = pdf.splitTextToSize(curso.toUpperCase(), 50);
-      pdf.text(cursoLines, 4, currentY);
-      currentY += (cursoLines.length * 3);
-
-      pdf.setFont("helvetica", "normal");
-      pdf.setTextColor(31, 41, 55);
-      pdf.text(turma.toUpperCase(), 4, currentY);
-      currentY += 4;
-
-      pdf.setTextColor(107, 114, 128);
-      pdf.text("ID: " + matricula, 4, currentY);
-
-      const fileName = `${nome.toUpperCase()} - ${matricula}.pdf`;
-      pdf.save(fileName);
-    });
   </script>
   <div id="toast-container" class="fixed top-4 right-4 z-[9999] space-y-2"></div>
+
+  <!-- Modal de Configurações do Sistema - POSICIONAMENTO CORRETO -->
+  <div id="configModal" class="fixed inset-0 bg-black/60 backdrop-blur-sm hidden items-center justify-center z-[100] transition-modal opacity-0">
+    <div class="bg-white dark:bg-slate-900 rounded-3xl shadow-2xl w-full max-w-3xl max-h-[90vh] overflow-y-auto m-4 flex flex-col gap-6 p-8 border dark:border-slate-800">
+      
+      <div class="flex justify-between items-center border-b dark:border-slate-800 pb-4 sticky top-0 bg-white dark:bg-slate-900 z-10">
+        <h2 class="text-2xl font-black text-gray-900 dark:text-white uppercase tracking-tighter">Gerenciar Cursos e Turmas</h2>
+        <button id="closeConfigBtn" class="text-gray-400 hover:text-red-500 transition-colors p-2 rounded-full hover:bg-gray-100 dark:hover:bg-slate-800">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+        </button>
+      </div>
+
+      <div class="flex flex-col gap-8">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <!-- Card Adicionar Curso -->
+          <div class="bg-indigo-50 dark:bg-indigo-950/20 p-6 rounded-2xl border border-indigo-100 dark:border-indigo-900/30 flex flex-col gap-4">
+            <label class="text-xs font-black text-indigo-800 dark:text-indigo-400 uppercase tracking-widest">1. Novo Curso</label>
+            <input type="text" id="novoCursoNome" placeholder="EX: ENFERMAGEM" class="w-full p-4 rounded-xl border-none bg-white dark:bg-slate-800 shadow-sm focus:ring-4 focus:ring-indigo-500/20 outline-none uppercase text-sm font-bold" oninput="this.value = this.value.toUpperCase()">
+            <button id="btnSalvarCurso" class="bg-indigo-600 hover:bg-indigo-700 text-white font-black py-4 rounded-xl transition-all shadow-lg shadow-indigo-200 dark:shadow-none text-sm uppercase">
+              + Adicionar Curso
+            </button>
+          </div>
+
+          <!-- Card Adicionar Turma -->
+          <div class="bg-emerald-50 dark:bg-emerald-950/20 p-6 rounded-2xl border border-emerald-100 dark:border-emerald-900/30 flex flex-col gap-4">
+            <label class="text-xs font-black text-emerald-800 dark:text-emerald-400 uppercase tracking-widest">2. Nova Turma</label>
+            <select id="cursoParaTurma" class="w-full p-4 rounded-xl border-none bg-white dark:bg-slate-800 shadow-sm focus:ring-4 focus:ring-emerald-500/20 outline-none text-sm font-bold">
+              <option value="">SELECIONE O CURSO...</option>
+            </select>
+            <input type="text" id="novaTurmaNome" placeholder="EX: 1ª SÉRIE A" class="w-full p-4 rounded-xl border-none bg-white dark:bg-slate-800 shadow-sm focus:ring-4 focus:ring-emerald-500/20 outline-none uppercase text-sm font-bold disabled:opacity-50" disabled oninput="this.value = this.value.toUpperCase()">
+            <button id="btnSalvarTurma" class="bg-emerald-600 hover:bg-emerald-700 text-white font-black py-4 rounded-xl transition-all shadow-lg shadow-emerald-200 dark:shadow-none text-sm uppercase disabled:opacity-50" disabled>
+              + Adicionar Turma
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Lista de Gerenciamento Excluir/Editar -->
+      <div class="border-t dark:border-slate-800 pt-6">
+        <h3 class="text-lg font-bold text-gray-800 dark:text-white mb-4 uppercase tracking-tight">Cursos e Turmas Cadastrados</h3>
+        <div id="configList" class="space-y-4 max-h-64 overflow-y-auto pr-2 custom-scrollbar"></div>
+      </div>
+    </div>
+  </div>
 </body>
 </html>
