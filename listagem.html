@@ -79,27 +79,45 @@
     .nav-button:hover:before {
       width: 100%;
     }
+    .student-name {
+      transition: all 0.3s ease;
+      font-weight: 700;
+      color: #1f2937 !important;
+    }
+    .dark .student-name {
+      color: #f1f5f9 !important;
+    }
+    /* Tema Claro - Hover do nome */
+    body:not(.dark) tr:hover .student-name {
+      color: #4f46e5 !important;
+      text-shadow: 0 0 8px rgba(79, 70, 229, 0.3);
+    }
+    /* Tema Escuro - Hover do nome */
+    body.dark tr:hover .student-name {
+      color: #a5f3fc !important;
+      text-shadow: 0 0 12px rgba(165, 243, 252, 0.5);
+    }
   </style>
 </head>
 <body class="bg-gray-50 dark:bg-slate-950 min-h-screen text-gray-800 dark:text-gray-200 flex flex-col md:flex-row transition-colors duration-300">
 
   <!-- Menu Lateral -->
-  <aside class="no-print w-full md:w-64 bg-white dark:bg-slate-900 border-r border-gray-200 dark:border-slate-800 flex-shrink-0 flex flex-col h-auto md:h-screen sticky top-0">
-    <div class="p-6 border-b border-gray-100 flex items-center gap-3">
+  <aside class="no-print w-full md:w-64 bg-indigo-900 border-r border-indigo-950 flex-shrink-0 flex flex-col h-auto md:h-screen sticky top-0">
+    <div class="p-6 border-b border-indigo-950 flex items-center gap-3">
       <img src="logo.png" alt="Logo" class="h-10 w-auto">
       <div>
-        <h2 class="font-bold text-gray-900 dark:text-white leading-tight">CETIPass</h2>
-        <p class="text-[10px] text-gray-400 uppercase tracking-widest font-bold">Gestão de Acesso</p>
-        <div id="userNameDisplay" class="text-[10px] text-indigo-600 dark:text-indigo-400 font-bold mt-1 truncate max-w-[120px]"></div>
+        <h2 class="font-bold text-white leading-tight">CETIPass</h2>
+        <p class="text-[10px] text-indigo-200 uppercase tracking-widest font-bold">Gestão de Acesso</p>
+        <div id="userNameDisplay" class="text-[10px] text-amber-300 font-bold mt-1 truncate max-w-[120px]"></div>
       </div>
     </div>
     
     <nav class="flex-1 p-4 space-y-1">
-      <a href="dashboard.html" class="flex items-center gap-3 p-3 rounded-xl text-gray-600 dark:text-slate-400 hover:bg-indigo-50 dark:hover:bg-slate-800 hover:text-indigo-600 dark:hover:text-indigo-400 hover:translate-x-1 hover:scale-[1.02] transition-all duration-300 ease-in-out font-medium">
+      <a href="dashboard.html" class="flex items-center gap-3 p-3 rounded-xl text-indigo-100 hover:bg-indigo-800 hover:text-white hover:translate-x-1 hover:scale-[1.02] transition-all duration-300 ease-in-out font-medium">
         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="7" height="9" x="3" y="3" rx="1"/><rect width="7" height="5" x="14" y="3" rx="1"/><rect width="7" height="9" x="14" y="12" rx="1"/><rect width="7" height="5" x="3" y="16" rx="1"/></svg>
         Dashboard
       </a>
-      <a href="leitor.html" class="flex items-center gap-3 p-3 rounded-xl text-gray-600 dark:text-slate-400 hover:bg-indigo-50 dark:hover:bg-slate-800 hover:text-indigo-600 dark:hover:text-indigo-400 hover:translate-x-1 hover:scale-[1.02] transition-all duration-300 ease-in-out font-medium">
+      <a href="leitor.html" class="flex items-center gap-3 p-3 rounded-xl text-indigo-100 hover:bg-indigo-800 hover:text-white hover:translate-x-1 hover:scale-[1.02] transition-all duration-300 ease-in-out font-medium">
         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="5" height="5" x="3" y="3" rx="1"/><rect width="5" height="5" x="16" y="3" rx="1"/><rect width="5" height="5" x="3" y="16" rx="1"/><path d="M21 16h-3a2 2 0 0 0-2 2v3"/><path d="M21 21v.01"/><path d="M12 7v3"/><path d="M7 12h3"/><path d="M12 12h.01"/><path d="M16 12h.01"/><path d="M12 16v.01"/><path d="M16 16v.01"/><path d="M21 12v.01"/><path d="M12 21v.01"/></svg>
         Leitor QR
       </a>
@@ -107,24 +125,24 @@
         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="8" x2="21" y1="6" y2="6"/><line x1="8" x2="21" y1="12" y2="12"/><line x1="8" x2="21" y1="18" y2="18"/><line x1="3" x2="3.01" y1="6" y2="6"/><line x1="3" x2="3.01" y1="12" y2="12"/><line x1="3" x2="3.01" y1="18" y2="18"/></svg>
         Listagem
       </a>
-      <a href="imprimir.html" class="flex items-center gap-3 p-3 rounded-xl text-gray-600 dark:text-slate-400 hover:bg-indigo-50 dark:hover:bg-slate-800 hover:text-indigo-600 dark:hover:text-indigo-400 hover:translate-x-1 hover:scale-[1.02] transition-all duration-300 ease-in-out font-medium">
+      <a href="imprimir.html" class="flex items-center gap-3 p-3 rounded-xl text-indigo-100 hover:bg-indigo-800 hover:text-white hover:translate-x-1 hover:scale-[1.02] transition-all duration-300 ease-in-out font-medium">
         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><path d="M6 9V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v5"/><rect x="6" y="14" width="12" height="8" rx="2"/></svg>
         Imprimir Carteiras
       </a>
-      <button id="openConfigBtn" type="button" class="w-full flex items-center gap-3 p-3 rounded-xl text-gray-600 dark:text-slate-400 hover:bg-indigo-50 dark:hover:bg-slate-800 hover:text-indigo-600 dark:hover:text-indigo-400 hover:translate-x-1 hover:scale-[1.02] transition-all duration-300 ease-in-out font-medium text-left">
+      <button id="openConfigBtn" type="button" class="w-full flex items-center gap-3 p-3 rounded-xl text-indigo-100 hover:bg-indigo-800 hover:text-white hover:translate-x-1 hover:scale-[1.02] transition-all duration-300 ease-in-out font-medium text-left">
         <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"/><circle cx="12" cy="12" r="3"/></svg>
         Gerenciar Cursos/Turmas
       </button>
-      <a href="admin.html" class="flex items-center gap-3 p-3 rounded-xl text-gray-600 dark:text-slate-400 hover:bg-indigo-50 dark:hover:bg-slate-800 hover:text-indigo-600 dark:hover:text-indigo-400 hover:translate-x-1 hover:scale-[1.02] transition-all duration-300 ease-in-out font-medium">
+      <a href="admin.html" class="flex items-center gap-3 p-3 rounded-xl text-indigo-100 hover:bg-indigo-800 hover:text-white hover:translate-x-1 hover:scale-[1.02] transition-all duration-300 ease-in-out font-medium">
         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><line x1="19" x2="19" y1="8" y2="14"/><line x1="16" x2="22" y1="11" y2="11"/></svg>
         Cadastrar Aluno
       </a>
-      <button id="themeToggle" class="w-full flex items-center gap-3 p-3 rounded-xl text-gray-600 dark:text-slate-400 hover:bg-indigo-50 dark:hover:bg-slate-800 transition-all font-medium">
-        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="dark:hidden"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
-        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="hidden dark:block"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="M4.93 4.93l1.41 1.41"/><path d="M17.66 17.66l1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="M6.34 17.66l-1.41 1.41"/><path d="M19.07 4.93l-1.41 1.41"/></svg>
+      <button id="themeToggle" class="w-full flex items-center gap-3 p-3 rounded-xl text-indigo-100 hover:bg-indigo-800 transition-all font-medium">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="hidden"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="block"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="M4.93 4.93l1.41 1.41"/><path d="M17.66 17.66l1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="M6.34 17.66l-1.41 1.41"/><path d="M19.07 4.93l-1.41 1.41"/></svg>
         Alternar Tema
       </button>
-      <button id="logoutBtn" class="w-full flex items-center gap-3 p-3 rounded-xl text-red-500 hover:bg-red-50 transition-all font-medium">
+      <button id="logoutBtn" class="w-full flex items-center gap-3 p-3 rounded-xl text-red-300 hover:bg-red-900 hover:text-red-100 transition-all font-medium">
         <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" x2="9" y1="12" y2="12"/></svg>
         Sair
       </button>
@@ -135,7 +153,7 @@
     <div class="max-w-5xl mx-auto">
       <header class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-10">
         <h1 class="text-3xl font-bold text-gray-900 dark:text-white">Alunos Cadastrados</h1>
-        <div class="flex gap-3">
+        <div class="flex gap-3 flex-wrap items-center">
           <button id="batchPrintBtn" class="hidden bg-gray-800 text-white px-5 py-3 rounded-xl hover:bg-black transition font-bold text-sm">
             🖨️ Imprimir Turma
           </button>
@@ -145,6 +163,12 @@
           <button id="exportarBtn" class="bg-emerald-600 text-white px-5 py-3 rounded-xl hover:bg-emerald-700 transition font-bold text-sm">
             Exportar CSV
           </button>
+          <div id="acoesSelecionadas" class="hidden flex gap-2 ml-auto">
+            <span id="contadorSelecionados" class="text-gray-600 dark:text-slate-400 font-medium py-2"></span>
+            <button id="deleteSelectedBtn" class="bg-red-600 text-white px-5 py-3 rounded-xl hover:bg-red-700 transition font-bold text-sm">
+              🗑️ Excluir Selecionados
+            </button>
+          </div>
         </div>
       </header>
 
@@ -171,6 +195,10 @@
         <table class="w-full text-left border-collapse">
           <thead>
             <tr class="bg-gray-50 dark:bg-slate-800 border-b border-gray-100 dark:border-slate-800">
+              <th class="px-4 py-4 text-center">
+                <!-- Checkbox para selecionar todos -->
+                <input type="checkbox" id="selectAllCheckbox" class="w-5 h-5 rounded border-gray-300 dark:border-slate-600 cursor-pointer accent-indigo-600">
+              </th>
               <th class="px-6 py-4 text-xs font-semibold text-gray-500 uppercase">Nome</th>
               <th class="px-6 py-4 text-xs font-semibold text-gray-500 uppercase">Matrícula</th>
               <th class="px-6 py-4 text-xs font-semibold text-gray-500 uppercase">Curso</th>
@@ -182,7 +210,7 @@
           <tbody id="listaAlunos" class="divide-y divide-gray-50 dark:divide-slate-800">
             <!-- Linhas inseridas via JS -->
             <tr>
-              <td colspan="4" class="px-6 py-8 text-center text-gray-400">Carregando alunos...</td>
+              <td colspan="7" class="px-6 py-8 text-center text-gray-400">Carregando alunos...</td>
             </tr>
           </tbody>
         </table>
@@ -291,6 +319,10 @@
     const logoutBtn = document.getElementById('logoutBtn');
     const batchPrintBtn = document.getElementById('batchPrintBtn');
     const batchPrintArea = document.getElementById('batchPrintArea');
+    const selectAllCheckbox = document.getElementById('selectAllCheckbox');
+    const acoesSelecionadas = document.getElementById('acoesSelecionadas');
+    const contadorSelecionados = document.getElementById('contadorSelecionados');
+    const deleteSelectedBtn = document.getElementById('deleteSelectedBtn');
     const themeToggle = document.getElementById('themeToggle');
 
     // Função para exibir toasts de notificação
@@ -424,7 +456,7 @@
         }));
 
         filtrarAlunos();
- showToast('Alunos carregados com sucesso!', 'success');
+        showToast('Alunos carregados com sucesso!', 'success');
       } catch (error) {
         console.error("Erro ao carregar:", error);
         listaAlunosEl.innerHTML = '<tr><td colspan="4" class="px-6 py-8 text-center text-red-500">Erro ao carregar dados.</td></tr>';
@@ -433,6 +465,8 @@
     }
 
     // Função para filtrar e renderizar a tabela
+    let selectedStudents = new Set(); // Armazena os IDs dos alunos selecionados
+
     function filtrarAlunos() {
       const termo = filtroBusca.value.toUpperCase();
       const curso = filtroCurso.value;
@@ -442,18 +476,20 @@
       batchPrintBtn.classList.toggle('hidden', !turma);
 
       const alunosFiltrados = alunosCache.filter(aluno => {
-        const matchTexto = aluno.nome.toUpperCase().includes(termo) || aluno.matricula.includes(termo);
+        const matchTexto = (aluno.nome || "").toUpperCase().includes(termo) || (aluno.matricula || "").includes(termo);
         const matchCurso = curso === "" || aluno.curso === curso;
         const matchTurma = turma === "" || aluno.turma === turma;
         return matchTexto && matchCurso && matchTurma;
       });
 
       renderizarTabela(alunosFiltrados);
+      updateSelectedCount(); // Atualiza a contagem após a filtragem/renderização
+      selectAllCheckbox.checked = false; // Desmarca o "selecionar todos" ao filtrar
     }
 
     function renderizarTabela(alunos) {
         if (alunos.length === 0) {
-          listaAlunosEl.innerHTML = '<tr><td colspan="4" class="px-6 py-8 text-center text-gray-400">Nenhum aluno cadastrado.</td></tr>';
+          listaAlunosEl.innerHTML = '<tr><td colspan="7" class="px-6 py-8 text-center text-gray-400">Nenhum aluno cadastrado com esses filtros.</td></tr>';
           return;
         }
 
@@ -474,9 +510,12 @@
           }
 
           const tr = document.createElement('tr');
-          tr.className = 'hover:bg-gray-50 transition';
-          tr.innerHTML = `
-            <td class="px-6 py-4 font-medium ${textClass}">${nomeExibicao}</td>
+          tr.className = 'hover:bg-gray-50 dark:hover:bg-slate-800 transition';
+          tr.innerHTML = ` 
+            <td class="px-4 py-4 text-center">
+              <input type="checkbox" class="student-checkbox w-5 h-5 rounded border-gray-300 dark:border-slate-600 cursor-pointer accent-indigo-600" data-id="${id}" ${selectedStudents.has(id) ? 'checked' : ''}>
+            </td>
+            <td class="px-6 py-4 font-medium student-name ${textClass}">${nomeExibicao}</td>
             <td class="px-6 py-4 text-sm font-mono ${subTextClass}">${aluno.matricula}</td>
             <td class="px-6 py-4 ${subTextClass}">${aluno.curso || '--'}</td>
             <td class="px-6 py-4 ${subTextClass}">${aluno.turma || '--'}</td>
@@ -507,6 +546,35 @@
     });
     filtroTurma.addEventListener('change', filtrarAlunos);
 
+    // Lógica do checkbox "selecionar todos"
+    selectAllCheckbox.addEventListener('change', () => {
+      const isChecked = selectAllCheckbox.checked;
+      document.querySelectorAll('.student-checkbox').forEach(checkbox => {
+        checkbox.checked = isChecked;
+        const studentId = checkbox.getAttribute('data-id');
+        if (isChecked) {
+          selectedStudents.add(studentId);
+        } else {
+          selectedStudents.delete(studentId);
+        }
+      });
+      updateSelectedCount();
+    });
+
+    // Atualiza a contagem de selecionados e o estado do botão de exclusão
+    function updateSelectedCount() {
+      contadorSelecionados.textContent = `${selectedStudents.size} selecionado(s)`;
+      if (selectedStudents.size > 0) {
+        acoesSelecionadas.classList.remove('hidden');
+        deleteSelectedBtn.disabled = false;
+      } else {
+        acoesSelecionadas.classList.add('hidden');
+        deleteSelectedBtn.disabled = true;
+      }
+      // Verifica se todos os checkboxes individuais estão marcados para atualizar o selectAllCheckbox
+      selectAllCheckbox.checked = selectedStudents.size > 0 && selectedStudents.size === document.querySelectorAll('.student-checkbox').length;
+    }
+
     function atualizarFiltroTurma() {
       const curso = filtroCurso.value;
       if (!curso) {
@@ -519,6 +587,19 @@
     }
 
     function adicionarEventos() {
+      // Evento para checkboxes individuais
+      document.querySelectorAll('.student-checkbox').forEach(checkbox => {
+        checkbox.addEventListener('change', (e) => {
+          const studentId = e.target.getAttribute('data-id');
+          if (e.target.checked) {
+            selectedStudents.add(studentId);
+          } else {
+            selectedStudents.delete(studentId);
+          }
+          updateSelectedCount();
+        });
+      });
+
       // Evento de Exclusão
       document.querySelectorAll('.btn-del').forEach(btn => {
         btn.onclick = async (e) => {
@@ -526,12 +607,12 @@
             const id = e.target.getAttribute('data-id');
             try {
               await deleteDoc(doc(db, "alunos", id));
-              carregarAlunos();
- showToast('Aluno excluído com sucesso!', 'success');
+              selectedStudents.delete(id); // Remove do conjunto de selecionados
+              await carregarAlunos(); // Recarrega a lista e atualiza a UI
+              showToast('Aluno excluído com sucesso!', 'success');
             } catch (error) {
- showToast('Erro ao excluir aluno.', 'error');
+              showToast('Erro ao excluir aluno.', 'error');
             }
- showToast('Aluno excluído com sucesso!', 'success');
           }
         };
       });
@@ -544,8 +625,8 @@
           const newStatus = current === 'ativo' ? 'inativo' : 'ativo';
           try {
             await updateDoc(doc(db, "alunos", id), { status: newStatus });
-            carregarAlunos();
- showToast('Status do aluno atualizado!', 'success');
+            await carregarAlunos(); // Recarrega a lista e atualiza a UI
+            showToast('Status do aluno atualizado!', 'success');
           } catch (e) { showToast('Erro ao mudar status.', 'error');
  }
         };
@@ -645,7 +726,7 @@
     };
 
     downloadQRBtn.onclick = () => {
- showToast('Carteirinha PDF gerada e baixada!', 'success');
+      showToast('Carteirinha PDF gerada e baixada!', 'success');
       const container = document.getElementById('modalQRContainer');
       const canvas = container.querySelector('canvas');
       if (!canvas) return;
@@ -703,6 +784,29 @@
       if (event.target == editModal.querySelector('.modal-overlay')) fecharEditModal();
     };
 
+    // Lógica para exclusão em massa
+    deleteSelectedBtn.addEventListener('click', async () => {
+      if (selectedStudents.size === 0) {
+        showToast('Nenhum aluno selecionado para exclusão.', 'info');
+        return;
+      }
+
+      if (!confirm(`Deseja realmente excluir ${selectedStudents.size} aluno(s) selecionado(s)? Esta ação não pode ser desfeita.`)) {
+        return;
+      }
+
+      try {
+        for (const studentId of selectedStudents) {
+          await deleteDoc(doc(db, "alunos", studentId));
+        }
+        selectedStudents.clear(); // Limpa a seleção
+        await carregarAlunos(); // Recarrega a lista e atualiza a UI
+        showToast('Alunos selecionados excluídos com sucesso!', 'success');
+      } catch (error) {
+        showToast('Erro ao excluir alunos selecionados.', 'error');
+      }
+    });
+
     // --- IMPRESSÃO EM LOTE ---
     batchPrintBtn.onclick = async () => {
       const turmaSel = filtroTurma.value;
@@ -734,8 +838,8 @@
         new QRCode(document.getElementById(`batch-qr-${aluno.matricula}`), {
           text: aluno.matricula,
           width: 85,
-          height: 85
- , colorDark : "#000000"
+          height: 85,
+          colorDark : "#000000"
         });
       }
 
@@ -790,7 +894,7 @@
         const q = query(collection(db, "alunos"), orderBy("nome", "asc"));
         const snapshot = await getDocs(q);
         
-        if (snapshot.empty) {
+        if (snapshot.empty) { // Changed from !snapshot.exists() to snapshot.empty
  showToast("Não há alunos para exportar.", 'info');
           return;
         }
@@ -808,7 +912,7 @@
         document.body.appendChild(link);
         link.click();
         document.body.removeChild(link);
- showToast('Dados exportados para CSV com sucesso!', 'success');
+        showToast('Dados exportados para CSV com sucesso!', 'success');
       } catch (error) { console.error("Erro ao exportar:", error); showToast('Erro ao exportar dados.', 'error');
  }
     }
